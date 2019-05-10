@@ -1,0 +1,10 @@
+@media all and (max-width: 800px) {
+    main {
+        flex-direction: column;
+    }
+
+    .articles,
+    .sidebar {
+        width: 100%;
+    }
+}
