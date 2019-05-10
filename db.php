@@ -10,7 +10,7 @@
         /**
          * Return all categories
          */
-        public function get_categories(){
+        public function getCategories(){
             $req = $this->_conn->prepare("SELECT * FROM `Categorie`");
             $req->execute();
             $categories = $req->fetchAll(PDO::FETCH_OBJ);
@@ -19,7 +19,7 @@
         /**
          * Return all articles
          */
-        public function get_all_articles(){
+        public function getAllArticles(){
             $req = $this->_conn->prepare("SELECT * FROM `Article`");
             $req->execute();
             $articles = $req->fetchAll(PDO::FETCH_OBJ);
@@ -29,7 +29,7 @@
          * Return the last articles
          * $num is the number of articles wich must be return
          */
-        public function get_last_articles($num){
+        public function getLastArticles($num){
             $req = $this->_conn->prepare("SELECT * FROM `Article` ORDER BY `date_article` DESC LIMIT 0, $num;");
             $req->execute();
             $articles = $req->fetchAll(PDO::FETCH_OBJ);
@@ -39,7 +39,7 @@
          * Return one article
          * $id is the primary key of the article wiwh must be return
          */
-        public function get_one_article($id){
+        public function getOneArticle($id){
             $req = $this->_conn->prepare("SELECT * FROM `Article` WHERE `id_article` = $id;");
             $req->execute();
             $article = $req->fetchAll(PDO::FETCH_OBJ);
