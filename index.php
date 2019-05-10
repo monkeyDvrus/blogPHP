@@ -54,12 +54,10 @@
                         <!-- *** AJOUTE LES CATEGORIES *** -->
                         <?php
                             $categories = $dbClass->get_categories();
-                            foreach ($categories as $categorie) {
-                                    echo '<li><a href="#">';
-                                    echo $categorie->nom_categorie;
-                                    echo '</a></li>';
-                            }
+                            foreach ($categories as $categorie) :
                         ?>
+                            <li><a href="#"><?= $categorie->nom_categorie; ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </section>
