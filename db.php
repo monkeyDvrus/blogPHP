@@ -57,5 +57,16 @@
             $articles = $req->fetchAll(PDO::FETCH_OBJ);
             return $articles;
         }
+        /**
+         * Return a list of articles wich contain the word gived in param
+         */
+        public function searchTitle($search){
+            $search = '%' . $search . '%';
+            $req = $this->_conn->prepare("SELECT * FROM Article JOIN Categorie ON Article.id_categorie = Categorie.id_categorie WHERE Article.titre_article LIKE :search;");
+            $req->bindParam(":search", $search);
+            $req->execute();
+            $articles = $req->fetchAll(PDO::FETCH_OBJ);
+            return $articles;
+        }
     };
 ?>
