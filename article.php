@@ -1,6 +1,6 @@
 <?php 
     require("./functions.php");
-    require("db.php"); 
+    require("./db.php"); 
 
     getHeader();
 ?>     
