@@ -44,7 +44,7 @@
                             $categories = $dbClass->getCategories();
                             foreach ($categories as $categorie) :
                         ?>
-                            <li><a href="#"><?= $categorie->nom_categorie; ?></a></li>
+                            <li><a href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

@@ -24,10 +24,7 @@
                         $categories = $dbClass->getCategories();
                         foreach ($categories as $categorie) :
                     ?>
-                    <a class="dropdown-item" href="#"><?= $categorie->nom_categorie ?></a>
-                    <!-- <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a> -->
+                    <a class="dropdown-item" href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie ?></a>
                     <?php endforeach; ?>
                     </div>
                 </li>
