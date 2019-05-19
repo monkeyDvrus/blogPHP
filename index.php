@@ -19,9 +19,9 @@
                         </header>
                         <div>
                             <p><span><?= $article->date_article ?></span></p>
-                            <p><?= substr($article->texte_article, 0, 500) ?> ... <a href="./single.php?id=<?= $article->id_article ?>">Lire la suite</a></p>
+                            <p><?= substr($article->texte_article, 0, 500) ?> ... <a href="./article.php?id=<?= $article->id_article ?>">Lire la suite</a></p>
                             <form>
-                                <a href="./single.php?id=<?= $article->id_article ?>">
+                                <a href="./article.php?id=<?= $article->id_article ?>">
                                     <input type="button" class="btn btn-outline-primary my-2 my-sm-0" value="Lire l'article">
                                 </a>
                             </form>
@@ -44,7 +44,7 @@
                             $categories = $dbClass->getCategories();
                             foreach ($categories as $categorie) :
                         ?>
-                            <li><a href="#"><?= $categorie->nom_categorie; ?></a></li>
+                            <li><a href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

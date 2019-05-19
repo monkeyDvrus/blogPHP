@@ -19,15 +19,18 @@
                     Les catégories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <?php 
+                        $dbClass = new Db; 
+                        $categories = $dbClass->getCategories();
+                        foreach ($categories as $categorie) :
+                    ?>
+                    <a class="dropdown-item" href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie ?></a>
+                    <?php endforeach; ?>
                     </div>
                 </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="form-inline my-2 my-lg-0" action="./search.php" method="POST">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search" required>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
