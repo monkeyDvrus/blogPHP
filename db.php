@@ -20,7 +20,6 @@
          * Return all articles
          */
         public function getAllArticles(){
-            // $req = $this->_conn->prepare("SELECT * FROM `Article` JOIN `Categorie` ON Article.id_categorie = Categorie.id_categorie");
             $req = $this->_conn->prepare("SELECT * FROM Article JOIN Categorie ON Article.id_categorie = Categorie.id_categorie;");
             $req->execute();
             $articles = $req->fetchAll(PDO::FETCH_OBJ);
@@ -52,7 +51,7 @@
          * Return a list of articles wich add the categorie past in param
          */
         public function getArticlesByCategorrie($id){
-            $req = $this->_conn->prepare("SELECT * FROM `Article` WHERE `id_categorie` = :id;");
+            $req = $this->_conn->prepare("SELECT * FROM Article JOIN Categorie ON Article.id_categorie = Categorie.id_categorie WHERE Article.id_categorie = :id;");
             $req->bindParam(":id", $id);
             $req->execute();
             $articles = $req->fetchAll(PDO::FETCH_OBJ);

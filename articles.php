@@ -23,6 +23,7 @@
                 </form>
                 <!-- *** Duplication *** -->
                 <?php
+                if($_GET[selectCategorie] <= count($categories)){
                     if(count($_GET[selectCategorie]) >= 1){
                         if($_GET[selectCategorie] == 0){
                             $articles = $dbClass->getAllArticles();
@@ -52,6 +53,9 @@
                     </div>
                 <?php
                     endforeach;
+                }else{
+                    echo '<div class="article"><h5>Catégorie non trouvé</h5></div>';
+                }
                 ?>
             </section>
         </main>
