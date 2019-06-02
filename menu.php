@@ -20,8 +20,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php 
-                        $dbClass = new Db; 
-                        $categories = $dbClass->getCategories();
+                        $categories = Db::getCategories();
                         foreach ($categories as $categorie) :
                     ?>
                     <a class="dropdown-item" href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie ?></a>

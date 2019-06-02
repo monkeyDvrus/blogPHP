@@ -12,8 +12,7 @@
                     <select name="selectCategorie">
                         <option value="0">Toutes les catégories</option>
                         <?php
-                            $dbClass = new Db;
-                            $categories = $dbClass->getCategories();
+                            $categories = Db::getCategories();
                             foreach($categories as $categorie) :
                         ?>
                             <option <?php if($_GET[selectCategorie] == $categorie->id_categorie)echo 'selected'; ?> value="<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie ?></option>
@@ -26,12 +25,12 @@
                 if($_GET[selectCategorie] <= count($categories)){
                     if(count($_GET[selectCategorie]) >= 1){
                         if($_GET[selectCategorie] == 0){
-                            $articles = $dbClass->getAllArticles();
+                            $articles = Db::getAllArticles();
                         } else {
-                            $articles = $dbClass->getArticlesByCategorrie($_GET[selectCategorie]);
+                            $articles = Db::getArticlesByCategorrie($_GET[selectCategorie]);
                         };
                     } else if(count($_GET[selectCategorie]) == 0) {
-                        $articles = $dbClass->getAllArticles();
+                        $articles = Db::getAllArticles();
                     };
                     foreach ($articles as $article) :
                 ?>
