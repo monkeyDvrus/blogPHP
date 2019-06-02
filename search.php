@@ -8,8 +8,7 @@
         <main>
             <section class="articlesAll">
             <?php
-                $dbClass = new Db;
-                $articles = $dbClass->searchTitle($_POST['search']);
+                $articles = Db::searchTitle($_POST['search']);
                 if(!count($articles) == 0){
                 foreach($articles as $article) :
             ?>

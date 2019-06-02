@@ -1,5 +1,5 @@
 <?php require "functions.php"; ?>
-<?php require "db.php"; ?>
+<?php require_once "db.php"; ?>
 
 <?php getHeader(); ?>       
 
@@ -8,8 +8,7 @@
                 <h2>Les derniers articles:</h2>
                 <!-- *** DUPLICATION *** -->
                 <?php
-                    $dbClass = new Db;
-                    $articles = $dbClass->getLastArticles(5);
+                    $articles = Db::getLastArticles(5);
                     foreach ($articles as $article) :
                 ?>
                     <!-- *** UN ARTICLE *** -->
@@ -41,7 +40,7 @@
                     <ul>
                         <!-- *** AJOUTE LES CATEGORIES *** -->
                         <?php
-                            $categories = $dbClass->getCategories();
+                            $categories = Db::getCategories();
                             foreach ($categories as $categorie) :
                         ?>
                             <li><a href="./articles.php?selectCategorie=<?= $categorie->id_categorie ?>"><?= $categorie->nom_categorie; ?></a></li>
